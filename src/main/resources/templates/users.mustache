@@ -1,0 +1,10 @@
+{{> header}}
+
+{{#i18n}}users.list{{/i18n}}
+<ul>
+	{{#users}}
+		<li>{{firstName}} {{lastName}} - {{birthDate}}</li>
+	{{/users}}
+</ul>
+
+{{> footer}}

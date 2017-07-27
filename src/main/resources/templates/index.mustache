@@ -1,0 +1,14 @@
+{{> header}}
+
+<div>
+  <p>{{#i18n}}index.welcome{{/i18n}}</p>
+
+  {{#i18n}}index.list{{/i18n}}
+  <ul>
+    <li><a href="./users">{{#i18n}}index.mustache{{/i18n}}</a></li>
+    <li><a href="./api/users">{{#i18n}}index.json{{/i18n}}</a></li>
+      <li><a href="./sse">{{#i18n}}index.sse{{/i18n}}</a></li>
+  </ul>
+</div>
+
+{{> footer}}
