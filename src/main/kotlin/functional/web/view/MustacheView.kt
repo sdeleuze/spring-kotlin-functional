@@ -90,7 +90,7 @@ class MustacheView : AbstractUrlBasedView() {
 
 	private fun resolveResource(): Resource? {
 		val resource = applicationContext!!.getResource(url!!)
-		if (resource == null || !resource.exists()) {
+		if (!resource.exists()) {
 			return null
 		}
 		return resource

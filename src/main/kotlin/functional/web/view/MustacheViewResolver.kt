@@ -48,7 +48,7 @@ class MustacheViewResolver(private val compiler: Compiler = Mustache.compiler())
 		return MustacheView::class.java
 	}
 
-	override fun createView(viewName: String?): AbstractUrlBasedView {
+	override fun createView(viewName: String): AbstractUrlBasedView {
 		val view = super.createView(viewName) as MustacheView
 		view.setCompiler(this.compiler)
 		this.charset?.let { view.setCharset(it) }

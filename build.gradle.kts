@@ -53,6 +53,8 @@ tasks {
 		
 		compile("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.0")
 		compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.0")
+
+		compile("com.google.code.findbugs:jsr305:3.0.2") // Needed for now, could be removed when KT-19419 will be fixed
 		
 		testCompile("io.projectreactor:reactor-test:3.1.0.M3")
 
