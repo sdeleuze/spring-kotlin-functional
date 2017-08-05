@@ -36,7 +36,7 @@ class Routes(val userHandler: UserHandler, val messageSource: MessageSource) {
 	}
 
 	private fun attributes(locale: Locale, messageSource: MessageSource) = mutableMapOf<String, Any>(
-			Pair("i18n", Mustache.Lambda { frag, out ->
+			"i18n" to Mustache.Lambda { frag, out ->
 				val tokens = frag.execute().split("|")
-				out.write(messageSource.getMessage(tokens[0], tokens.slice(IntRange(1, tokens.size - 1)).toTypedArray(), locale)) }))
+				out.write(messageSource.getMessage(tokens[0], tokens.slice(IntRange(1, tokens.size - 1)).toTypedArray(), locale)) })
 }

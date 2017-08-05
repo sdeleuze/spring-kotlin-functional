@@ -26,7 +26,7 @@ class UserHandler {
 			ok().body(users)
 
 	fun findAllView(req: ServerRequest) =
-			ok().render("users", mapOf(Pair("users", users.map { it.toDto() })))
+			ok().render("users", mapOf("users" to users.map { it.toDto() }))
 	
 	fun stream(req: ServerRequest) =
 			ok().bodyToServerSentEvents(userStream)
