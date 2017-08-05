@@ -4,6 +4,7 @@ import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
+import org.junit.jupiter.api.TestInstance.Lifecycle.*
 import org.springframework.http.MediaType.*
 import org.springframework.web.reactive.function.client.WebClient
 import org.springframework.web.reactive.function.client.bodyToFlux
@@ -11,6 +12,7 @@ import org.springframework.web.reactive.function.client.bodyToMono
 import reactor.test.test
 import java.time.LocalDate
 
+@TestInstance(PER_CLASS)
 class IntegrationTests {
 	
 	val application = Application(8181)
