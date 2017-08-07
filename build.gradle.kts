@@ -51,7 +51,9 @@ dependencies {
 	compile("org.jetbrains.kotlin:kotlin-reflect:1.1.4-eap-69")
 
 	compile("org.springframework:spring-webflux:5.0.0.BUILD-SNAPSHOT")
-	compile("org.springframework:spring-context:5.0.0.BUILD-SNAPSHOT")
+	compile("org.springframework:spring-context:5.0.0.BUILD-SNAPSHOT") {
+		exclude(module = "spring-aop")
+	}
 	compile("io.projectreactor.ipc:reactor-netty:0.7.0.M1")
 	compile("com.samskivert:jmustache:1.13")
 
