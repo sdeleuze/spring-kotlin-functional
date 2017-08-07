@@ -1,5 +1,9 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+plugins {
+	application
+}
+
 buildscript {
 	repositories {
 		mavenCentral()
@@ -29,37 +33,39 @@ repositories {
 	maven { setUrl("https://dl.bintray.com/kotlin/kotlin-eap-1.1") }
 }
 
+application {
+	mainClassName = "functional.ApplicationKt"
+}
 
 tasks {
-
 	withType<KotlinCompile> {
 		kotlinOptions {
 			jvmTarget = "1.8"
 			freeCompilerArgs = listOf("-Xjsr305-annotations=enable")
 		}
 	}
+}
 
-	dependencies {
-		compile("org.jetbrains.kotlin:kotlin-stdlib-jre8:1.1.4-eap-69")
-		compile("org.jetbrains.kotlin:kotlin-reflect:1.1.4-eap-69")
+dependencies {
+	compile("org.jetbrains.kotlin:kotlin-stdlib-jre8:1.1.4-eap-69")
+	compile("org.jetbrains.kotlin:kotlin-reflect:1.1.4-eap-69")
 
-		compile("org.springframework:spring-webflux:5.0.0.BUILD-SNAPSHOT")
-		compile("org.springframework:spring-context:5.0.0.BUILD-SNAPSHOT")
-		compile("io.projectreactor.ipc:reactor-netty:0.7.0.M1")
-		compile("com.samskivert:jmustache:1.13")
+	compile("org.springframework:spring-webflux:5.0.0.BUILD-SNAPSHOT")
+	compile("org.springframework:spring-context:5.0.0.BUILD-SNAPSHOT")
+	compile("io.projectreactor.ipc:reactor-netty:0.7.0.M1")
+	compile("com.samskivert:jmustache:1.13")
 
-		compile("org.slf4j:slf4j-api:1.7.25")
-		compile("ch.qos.logback:logback-classic:1.2.3")
-		
-		compile("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.0")
-		compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.0")
+	compile("org.slf4j:slf4j-api:1.7.25")
+	compile("ch.qos.logback:logback-classic:1.2.3")
+	
+	compile("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.0")
+	compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.0")
 
-		compile("com.google.code.findbugs:jsr305:3.0.2") // Needed for now, could be removed when KT-19419 will be fixed
-		
-		testCompile("io.projectreactor:reactor-test:3.1.0.M3")
+	compile("com.google.code.findbugs:jsr305:3.0.2") // Needed for now, could be removed when KT-19419 will be fixed
+	
+	testCompile("io.projectreactor:reactor-test:3.1.0.M3")
 
-		testCompile("org.junit.jupiter:junit-jupiter-api:5.0.0-RC2")
-		testRuntime("org.junit.jupiter:junit-jupiter-engine:5.0.0-RC2")
-		testRuntime("org.junit.platform:junit-platform-launcher:1.0.0-RC2")
-	}
+	testCompile("org.junit.jupiter:junit-jupiter-api:5.0.0-RC2")
+	testRuntime("org.junit.jupiter:junit-jupiter-engine:5.0.0-RC2")
+	testRuntime("org.junit.platform:junit-platform-launcher:1.0.0-RC2")
 }
