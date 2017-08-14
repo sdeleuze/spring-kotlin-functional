@@ -14,7 +14,7 @@ buildscript {
 	}
 
 	dependencies {
-		classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.1.4-eap-69")
+		classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.1.4-eap-77")
 		classpath("com.github.jengelman.gradle.plugins:shadow:2.0.1")
 		classpath("org.junit.platform:junit-platform-gradle-plugin:1.0.0-RC2")
 	}
@@ -47,8 +47,8 @@ tasks {
 }
 
 dependencies {
-	compile("org.jetbrains.kotlin:kotlin-stdlib-jre8:1.1.4-eap-69")
-	compile("org.jetbrains.kotlin:kotlin-reflect:1.1.4-eap-69")
+	compile("org.jetbrains.kotlin:kotlin-stdlib-jre8:1.1.4-eap-77")
+	compile("org.jetbrains.kotlin:kotlin-reflect:1.1.4-eap-77")
 
 	compile("org.springframework:spring-webflux:5.0.0.BUILD-SNAPSHOT")
 	compile("org.springframework:spring-context:5.0.0.BUILD-SNAPSHOT") {
