@@ -10,11 +10,10 @@ buildscript {
 		jcenter()
 		maven { setUrl("https://repo.spring.io/milestone") }
 		maven { setUrl("https://repo.spring.io/snapshot") }
-		maven { setUrl("https://dl.bintray.com/kotlin/kotlin-eap-1.1") }
 	}
 
 	dependencies {
-		classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.1.4-eap-77")
+		classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.1.4")
 		classpath("com.github.jengelman.gradle.plugins:shadow:2.0.1")
 		classpath("org.junit.platform:junit-platform-gradle-plugin:1.0.0-RC2")
 	}
@@ -30,7 +29,6 @@ repositories {
 	mavenCentral()
 	maven { setUrl("https://repo.spring.io/milestone") }
 	maven { setUrl("https://repo.spring.io/snapshot") }
-	maven { setUrl("https://dl.bintray.com/kotlin/kotlin-eap-1.1") }
 }
 
 application {
@@ -47,8 +45,8 @@ tasks {
 }
 
 dependencies {
-	compile("org.jetbrains.kotlin:kotlin-stdlib-jre8:1.1.4-eap-77")
-	compile("org.jetbrains.kotlin:kotlin-reflect:1.1.4-eap-77")
+	compile("org.jetbrains.kotlin:kotlin-stdlib-jre8:1.1.4")
+	compile("org.jetbrains.kotlin:kotlin-reflect:1.1.4")
 
 	compile("org.springframework:spring-webflux:5.0.0.BUILD-SNAPSHOT")
 	compile("org.springframework:spring-context:5.0.0.BUILD-SNAPSHOT") {
