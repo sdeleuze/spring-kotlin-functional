@@ -2,6 +2,8 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
 	application
+	id("org.jetbrains.kotlin.jvm") version "1.1.4"
+	id ("com.github.johnrengelman.plugin-shadow") version "2.0.0"
 }
 
 buildscript {
@@ -14,15 +16,11 @@ buildscript {
 	}
 
 	dependencies {
-		classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.1.4")
-		classpath("com.github.jengelman.gradle.plugins:shadow:2.0.1")
 		classpath("org.junit.platform:junit-platform-gradle-plugin:1.0.0-SNAPSHOT")
 	}
 }
 
 apply {
-	plugin("kotlin")
-	plugin("com.github.johnrengelman.shadow")
 	plugin("org.junit.platform.gradle.plugin")
 }
 
@@ -47,8 +45,8 @@ tasks {
 }
 
 dependencies {
-	compile("org.jetbrains.kotlin:kotlin-stdlib-jre8:1.1.4")
-	compile("org.jetbrains.kotlin:kotlin-reflect:1.1.4")
+	compile("org.jetbrains.kotlin:kotlin-stdlib-jre8")
+	compile("org.jetbrains.kotlin:kotlin-reflect")
 
 	compile("org.springframework:spring-webflux:5.0.0.BUILD-SNAPSHOT")
 	compile("org.springframework:spring-context:5.0.0.BUILD-SNAPSHOT") {
