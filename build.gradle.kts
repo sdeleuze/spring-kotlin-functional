@@ -10,12 +10,13 @@ buildscript {
 		jcenter()
 		maven { setUrl("https://repo.spring.io/milestone") }
 		maven { setUrl("https://repo.spring.io/snapshot") }
+		maven { setUrl("https://oss.sonatype.org/content/repositories/snapshots") }
 	}
 
 	dependencies {
 		classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.1.4")
 		classpath("com.github.jengelman.gradle.plugins:shadow:2.0.1")
-		classpath("org.junit.platform:junit-platform-gradle-plugin:1.0.0-RC2")
+		classpath("org.junit.platform:junit-platform-gradle-plugin:1.0.0-SNAPSHOT")
 	}
 }
 
@@ -29,6 +30,7 @@ repositories {
 	mavenCentral()
 	maven { setUrl("https://repo.spring.io/milestone") }
 	maven { setUrl("https://repo.spring.io/snapshot") }
+	maven { setUrl("https://oss.sonatype.org/content/repositories/snapshots") }
 }
 
 application {
@@ -57,15 +59,15 @@ dependencies {
 
 	compile("org.slf4j:slf4j-api:1.7.25")
 	compile("ch.qos.logback:logback-classic:1.2.3")
-	
+
 	compile("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.0")
 	compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.0")
 
 	compile("com.google.code.findbugs:jsr305:3.0.2") // Needed for now, could be removed when KT-19419 will be fixed
-	
+
 	testCompile("io.projectreactor:reactor-test:3.1.0.M3")
 
-	testCompile("org.junit.jupiter:junit-jupiter-api:5.0.0-RC2")
-	testRuntime("org.junit.jupiter:junit-jupiter-engine:5.0.0-RC2")
-	testRuntime("org.junit.platform:junit-platform-launcher:1.0.0-RC2")
+	testCompile("org.junit.jupiter:junit-jupiter-api:5.0.0-SNAPSHOT")
+	testRuntime("org.junit.jupiter:junit-jupiter-engine:5.0.0-SNAPSHOT")
+	testRuntime("org.junit.platform:junit-platform-launcher:1.0.0-SNAPSHOT")
 }
