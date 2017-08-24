@@ -12,11 +12,10 @@ buildscript {
 		jcenter()
 		maven { setUrl("https://repo.spring.io/milestone") }
 		maven { setUrl("https://repo.spring.io/snapshot") }
-		maven { setUrl("https://oss.sonatype.org/content/repositories/snapshots") }
 	}
 
 	dependencies {
-		classpath("org.junit.platform:junit-platform-gradle-plugin:1.0.0-SNAPSHOT")
+		classpath("org.junit.platform:junit-platform-gradle-plugin:1.0.0-RC3")
 	}
 }
 
@@ -28,7 +27,6 @@ repositories {
 	mavenCentral()
 	maven { setUrl("https://repo.spring.io/milestone") }
 	maven { setUrl("https://repo.spring.io/snapshot") }
-	maven { setUrl("https://oss.sonatype.org/content/repositories/snapshots") }
 }
 
 application {
@@ -65,7 +63,7 @@ dependencies {
 
 	testCompile("io.projectreactor:reactor-test:3.1.0.M3")
 
-	testCompile("org.junit.jupiter:junit-jupiter-api:5.0.0-SNAPSHOT")
-	testRuntime("org.junit.jupiter:junit-jupiter-engine:5.0.0-SNAPSHOT")
-	testRuntime("org.junit.platform:junit-platform-launcher:1.0.0-SNAPSHOT")
+	testCompile("org.junit.jupiter:junit-jupiter-api:5.0.0-RC3")
+	testRuntime("org.junit.jupiter:junit-jupiter-engine:5.0.0-RC3")
+	testRuntime("org.junit.platform:junit-platform-launcher:1.0.0-RC3")
 }
