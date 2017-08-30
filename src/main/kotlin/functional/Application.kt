@@ -16,9 +16,11 @@ class Application {
 	private var nettyContext: BlockingNettyContext? = null
 	
 	constructor(port: Int = 8080) {
-		val context = GenericApplicationContext()
-		beans().invoke(context)
-		context.refresh()
+		val context = GenericApplicationContext().apply {
+			beans().invoke(this)
+			refresh()
+		}
+
 		server = HttpServer.create(port)
 		httpHandler = WebHttpHandlerBuilder.applicationContext(context).build()
 	}
