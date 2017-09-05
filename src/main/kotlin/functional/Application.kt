@@ -17,7 +17,7 @@ class Application {
 	
 	constructor(port: Int = 8080) {
 		val context = GenericApplicationContext().apply {
-			beans().invoke(this)
+			beans().initialize(this)
 			refresh()
 		}
 
