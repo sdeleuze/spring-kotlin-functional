@@ -1,25 +1,34 @@
 package functional
 
-import org.junit.jupiter.api.AfterAll
-import org.junit.jupiter.api.BeforeAll
-import org.junit.jupiter.api.Test
+import org.junit.Before
+import org.junit.Test
+import org.junit.runner.RunWith
+import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.boot.test.context.SpringBootTest.*
+import org.springframework.boot.web.server.LocalServerPort
 import org.springframework.http.MediaType.*
+import org.springframework.test.context.junit4.SpringRunner
 import org.springframework.web.reactive.function.client.WebClient
 import org.springframework.web.reactive.function.client.bodyToFlux
 import org.springframework.web.reactive.function.client.bodyToMono
 import reactor.test.test
 import java.time.LocalDate
 
+@RunWith(SpringRunner::class)
+@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 class IntegrationTests {
-	
-	val application = Application(8181)
-	val client = WebClient.create("http://localhost:8181")
-	
-	@BeforeAll
-	fun beforeAll() {
-		application.start()
+
+	@LocalServerPort
+	var port: Int? = null
+
+	lateinit var client: WebClient
+
+	@Before
+	fun setup() {
+		client = WebClient.create("http://localhost:$port")
 	}
-	
+
+
 	@Test
 	fun `Find all users on JSON REST endpoint`() {
 		client.get().uri("/api/users")
@@ -60,9 +69,5 @@ class IntegrationTests {
 				.thenCancel()
 				.verify()
 	}
-	
-	@AfterAll
-	fun afterAll() {
-		application.stop()
-	}
+
 }
