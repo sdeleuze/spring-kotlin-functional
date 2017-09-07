@@ -10,7 +10,15 @@ This project is designed to demonstrate Spring Framework 5 Kotlin support and Fu
  - [Gradle Kotlin DSL](https://github.com/gradle/kotlin-dsl)
  - [Junit 5 `@BeforeAll` and `@AfterAll` on non-static methods in Kotlin](https://github.com/sdeleuze/spring-kotlin-functional/blob/master/src/test/kotlin/functional/IntegrationTests.kt)
 
-TODO:
- - [IDEA should take in account null-safety for inferred type](https://youtrack.jetbrains.com/issue/KT-19303)
+Current `master` branch is based on standalone WebFlux runtime. Spring Boot is based
+on JavaConfig and does not provide specific support functional bean definition yet (see
+[this issue](https://github.com/spring-projects/spring-boot/issues/8115) where this is discussed).
+That said, it is possible to use experimentally Spring Boot + functional bean definition together
+via `ApplicationContextInitializer`, see
+[this Spring Boot branch](https://github.com/sdeleuze/spring-kotlin-functional/tree/boot)
+for a concrete example.
  
 Build the project and run tests with `./gradlew build`, create the executable JAR via `./gradlew shadowJar`, and run it via `java -jar build/libs/spring-kotlin-functional-1.0.0-SNAPSHOT-all.jar`.
+
+TODO:
+ - [IDEA should take in account null-safety for inferred type](https://youtrack.jetbrains.com/issue/KT-19303)
