@@ -61,7 +61,7 @@ dependencies {
 
 	compile("com.google.code.findbugs:jsr305:3.0.2") // Needed for now, could be removed when KT-19419 will be fixed
 
-	testCompile("io.projectreactor:reactor-test:3.1.0.M3")
+	testCompile("io.projectreactor:reactor-test:3.1.0.RC1")
 
 	testCompile("org.junit.jupiter:junit-jupiter-api:5.0.0-RC3")
 	testRuntime("org.junit.jupiter:junit-jupiter-engine:5.0.0-RC3")
