@@ -12,8 +12,8 @@ import java.time.LocalDate
 
 class IntegrationTests {
 	
-	val application = Application(8181)
-	val client = WebClient.create("http://localhost:8181")
+	private val application = Application(8181)
+	private val client = WebClient.create("http://localhost:8181")
 	
 	@BeforeAll
 	fun beforeAll() {
