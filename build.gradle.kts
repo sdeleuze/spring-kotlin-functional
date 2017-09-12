@@ -15,7 +15,7 @@ buildscript {
 	}
 
 	dependencies {
-		classpath("org.junit.platform:junit-platform-gradle-plugin:1.0.0-RC3")
+		classpath("org.junit.platform:junit-platform-gradle-plugin:1.0.0")
 	}
 }
 
@@ -63,7 +63,7 @@ dependencies {
 
 	testCompile("io.projectreactor:reactor-test:3.1.0.RC1")
 
-	testCompile("org.junit.jupiter:junit-jupiter-api:5.0.0-RC3")
-	testRuntime("org.junit.jupiter:junit-jupiter-engine:5.0.0-RC3")
-	testRuntime("org.junit.platform:junit-platform-launcher:1.0.0-RC3")
+	testCompile("org.junit.jupiter:junit-jupiter-api:5.0.0")
+	testRuntime("org.junit.jupiter:junit-jupiter-engine:5.0.0")
+	testRuntime("org.junit.platform:junit-platform-launcher:1.0.0")
 }
