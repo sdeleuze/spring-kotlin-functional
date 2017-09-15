@@ -4,6 +4,7 @@ plugins {
 	application
 	id("org.jetbrains.kotlin.jvm") version "1.1.4-3"
 	id ("com.github.johnrengelman.plugin-shadow") version "2.0.0"
+	id ("io.spring.dependency-management") version "1.0.3.RELEASE"
 }
 
 buildscript {
@@ -42,28 +43,33 @@ tasks {
 	}
 }
 
+dependencyManagement {
+	imports {
+		mavenBom("org.springframework.boot:spring-boot-dependencies:2.0.0.M4")
+	}
+}
+
 dependencies {
 	compile("org.jetbrains.kotlin:kotlin-stdlib-jre8")
 	compile("org.jetbrains.kotlin:kotlin-reflect")
 
-	compile("org.springframework:spring-webflux:5.0.0.BUILD-SNAPSHOT")
-	compile("org.springframework:spring-context:5.0.0.BUILD-SNAPSHOT") {
+	compile("org.springframework:spring-webflux")
+	compile("org.springframework:spring-context") {
 		exclude(module = "spring-aop")
 	}
-	compile("io.projectreactor.ipc:reactor-netty:0.7.0.M1")
-	compile("com.samskivert:jmustache:1.13")
+	compile("io.projectreactor.ipc:reactor-netty")
+	compile("com.samskivert:jmustache")
 
-	compile("org.slf4j:slf4j-api:1.7.25")
-	compile("ch.qos.logback:logback-classic:1.2.3")
+	compile("org.slf4j:slf4j-api")
+	compile("ch.qos.logback:logback-classic")
 
-	compile("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.1")
-	compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.1")
+	compile("com.fasterxml.jackson.module:jackson-module-kotlin")
+	compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
 
 	compile("com.google.code.findbugs:jsr305:3.0.2") // Needed for now, could be removed when KT-19419 will be fixed
 
-	testCompile("io.projectreactor:reactor-test:3.1.0.RC1")
+	testCompile("io.projectreactor:reactor-test")
 
-	testCompile("org.junit.jupiter:junit-jupiter-api:5.0.0")
-	testRuntime("org.junit.jupiter:junit-jupiter-engine:5.0.0")
-	testRuntime("org.junit.platform:junit-platform-launcher:1.0.0")
+	testCompile("org.junit.jupiter:junit-jupiter-api")
+	testRuntime("org.junit.jupiter:junit-jupiter-engine")
 }
