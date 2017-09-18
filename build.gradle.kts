@@ -11,8 +11,8 @@ buildscript {
 	repositories {
 		mavenCentral()
 		jcenter()
-		maven { setUrl("https://repo.spring.io/milestone") }
-		maven { setUrl("https://repo.spring.io/snapshot") }
+		maven("https://repo.spring.io/milestone")
+		maven("https://repo.spring.io/snapshot")
 	}
 
 	dependencies {
@@ -26,8 +26,8 @@ apply {
 
 repositories {
 	mavenCentral()
-	maven { setUrl("https://repo.spring.io/milestone") }
-	maven { setUrl("https://repo.spring.io/snapshot") }
+	maven("https://repo.spring.io/milestone")
+	maven("https://repo.spring.io/snapshot")
 }
 
 application {
