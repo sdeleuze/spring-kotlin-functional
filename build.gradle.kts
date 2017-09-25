@@ -1,8 +1,8 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-	id("org.jetbrains.kotlin.jvm") version "1.1.4-3"
-	id("org.jetbrains.kotlin.plugin.spring") version "1.1.4-3"
+	id("org.jetbrains.kotlin.jvm") version "1.1.50"
+	id("org.jetbrains.kotlin.plugin.spring") version "1.1.50"
 	id("io.spring.dependency-management") version "1.0.3.RELEASE"
 }
 
@@ -36,7 +36,7 @@ tasks {
 	withType<KotlinCompile> {
 		kotlinOptions {
 			jvmTarget = "1.8"
-			freeCompilerArgs = listOf("-Xjsr305-annotations=enable")
+			freeCompilerArgs = listOf("-Xjsr305=strict")
 		}
 	}
 }
@@ -47,7 +47,6 @@ dependencies {
 	compile("org.springframework.boot:spring-boot-starter-webflux")
 	compile("com.samskivert:jmustache")
 	compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
-	compile("com.google.code.findbugs:jsr305:3.0.2") // Needed for now, could be removed when KT-19419 will be fixed
 
 	testCompile("org.springframework.boot:spring-boot-starter-test") {
 		exclude(module = "junit")
