@@ -46,7 +46,6 @@ dependencies {
 	compile("org.jetbrains.kotlin:kotlin-reflect")
 	compile("org.springframework.boot:spring-boot-starter-webflux")
 	compile("com.samskivert:jmustache")
-	compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
 
 	testCompile("org.springframework.boot:spring-boot-starter-test") {
 		exclude(module = "junit")
