@@ -12,9 +12,7 @@ import org.springframework.web.reactive.function.server.RouterFunctions
 
 fun beans() = beans {
 	bean<UserHandler>()
-	bean {
-		Routes(ref(), ref())
-	}
+	bean<Routes>()
 	bean("webHandler") {
 		RouterFunctions.toWebHandler(ref<Routes>().router(), HandlerStrategies.builder().viewResolver(ref()).build())
 	}
