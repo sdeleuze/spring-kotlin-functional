@@ -9,7 +9,7 @@ import java.util.stream.Collectors
 import java.util.stream.IntStream
 
 fun ServerRequest.locale() =
-		this.headers().asHttpHeaders().acceptLanguageAsLocales.firstOrNull() ?: Locale.ENGLISH
+		this.headers().asHttpHeaders().acceptLanguageAsLocales.firstOrNull() ?: Locale.ENGLISH!!
 
 fun LocalDate.formatDate(): String = this.format(englishDateFormatter)
 
