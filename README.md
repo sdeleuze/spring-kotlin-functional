@@ -2,7 +2,7 @@ This project is designed to demonstrate Spring Framework 5 Kotlin support and Fu
  - Programmatic Bootstrap of Spring WebFlux application (not needed when Spring Boot is used)
  - [Spring Kotlin support](https://spring.io/blog/2017/01/04/introducing-kotlin-support-in-spring-framework-5-0)
  - Reactor Kotlin support
- - Null-safety of Spring and Reactor API (make sure to use Kotlin 1.1.4-eap-69+)
+ - Null-safety of Spring and Reactor API
  - WebFlux Reactive web server and client
  - [Functional bean definition with Kotlin DSL](https://github.com/sdeleuze/spring-kotlin-functional/blob/master/src/main/kotlin/functional/Beans.kt) (no reflection, no CGLIB proxies involved)
  - [WebFlux functional routing declaration with Kotlin DSL](https://github.com/sdeleuze/spring-kotlin-functional/blob/master/src/main/kotlin/functional/web/Routes.kt)
@@ -19,6 +19,3 @@ via `ApplicationContextInitializer`, see
 for a concrete example.
  
 Build the project and run tests with `./gradlew build`, create the executable JAR via `./gradlew shadowJar`, and run it via `java -jar build/libs/spring-kotlin-functional-1.0.0-SNAPSHOT-all.jar`.
-
-TODO:
- - [IDEA should take in account null-safety for inferred type](https://youtrack.jetbrains.com/issue/KT-19303)
