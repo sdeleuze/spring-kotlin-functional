@@ -45,7 +45,7 @@ tasks {
 
 dependencyManagement {
 	imports {
-		mavenBom("org.springframework.boot:spring-boot-dependencies:2.0.0.M4")
+		mavenBom("org.springframework.boot:spring-boot-dependencies:2.0.0.BUILD-SNAPSHOT")
 	}
 }
 
