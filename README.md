@@ -10,6 +10,9 @@ This project is designed to demonstrate Spring Framework 5 Kotlin support and Fu
  - [Gradle Kotlin DSL](https://github.com/gradle/kotlin-dsl)
  - [Junit 5 `@BeforeAll` and `@AfterAll` on non-static methods in Kotlin](https://github.com/sdeleuze/spring-kotlin-functional/blob/master/src/test/kotlin/functional/IntegrationTests.kt)
 
+You can also have a look to this [WebFlux server DSL](https://github.com/tgirard12/spring-webflux-kotlin-dsl)
+experiment in order to provide a more concise and idiomatic code for bootstrapping.
+
 Current `master` branch is based on standalone WebFlux runtime. Spring Boot is based
 on JavaConfig and does not provide specific support functional bean definition yet (see
 [this issue](https://github.com/spring-projects/spring-boot/issues/8115) where this is discussed).
