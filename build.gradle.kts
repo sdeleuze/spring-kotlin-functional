@@ -1,8 +1,8 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-	id("org.jetbrains.kotlin.jvm") version "1.1.50"
-	id("org.jetbrains.kotlin.plugin.spring") version "1.1.50"
+	id("org.jetbrains.kotlin.jvm") version "1.1.51"
+	id("org.jetbrains.kotlin.plugin.spring") version "1.1.51"
 	id("io.spring.dependency-management") version "1.0.3.RELEASE"
 }
 
@@ -15,7 +15,7 @@ buildscript {
 	}
 
 	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.0.M4")
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.0.BUILD-SNAPSHOT")
 		classpath("org.junit.platform:junit-platform-gradle-plugin:1.0.0")
 	}
 }
