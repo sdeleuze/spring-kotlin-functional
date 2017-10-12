@@ -11,11 +11,10 @@ buildscript {
 		mavenCentral()
 		jcenter()
 		maven("https://repo.spring.io/milestone")
-		maven("https://repo.spring.io/snapshot")
 	}
 
 	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.0.BUILD-SNAPSHOT")
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.0.M5")
 		classpath("org.junit.platform:junit-platform-gradle-plugin:1.0.0")
 	}
 }
@@ -29,7 +28,6 @@ apply {
 repositories {
 	mavenCentral()
 	maven("https://repo.spring.io/milestone")
-	maven("https://repo.spring.io/snapshot")
 }
 
 tasks {
