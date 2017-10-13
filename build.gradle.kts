@@ -4,13 +4,13 @@ plugins {
 	application
 	id("org.jetbrains.kotlin.jvm") version "1.1.51"
 	id ("com.github.johnrengelman.plugin-shadow") version "2.0.0"
-    id("org.junit.platform.gradle.plugin") version "1.0.1"
-    id("io.spring.dependency-management") version "1.0.3.RELEASE"
+	id("org.junit.platform.gradle.plugin") version "1.0.1"
+	id("io.spring.dependency-management") version "1.0.3.RELEASE"
 }
 
 repositories {
 	mavenCentral()
-    maven("https://repo.spring.io/milestone")
+	maven("https://repo.spring.io/milestone")
 }
 
 application {
@@ -27,10 +27,10 @@ tasks {
 }
 
 dependencyManagement {
-    imports {
-        // Should use Spring IO platform milestone or release when available
-        mavenBom("org.springframework.boot:spring-boot-dependencies:2.0.0.M5")
-    }
+	imports {
+		// Should use Spring IO platform milestone or release when available
+		mavenBom("org.springframework.boot:spring-boot-dependencies:2.0.0.M5")
+	}
 }
 
 dependencies {
