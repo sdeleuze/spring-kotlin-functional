@@ -1,10 +1,23 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+buildscript {
+	repositories {
+		mavenCentral()
+	}
+
+	dependencies {
+		classpath("org.junit.platform:junit-platform-gradle-plugin:1.0.1")
+	}
+}
+
+apply {
+	plugin("org.junit.platform.gradle.plugin")
+}
+
 plugins {
 	application
 	id("org.jetbrains.kotlin.jvm") version "1.1.51"
 	id ("com.github.johnrengelman.plugin-shadow") version "2.0.0"
-	id("org.junit.platform.gradle.plugin") version "1.0.1"
 	id("io.spring.dependency-management") version "1.0.3.RELEASE"
 }
 
