@@ -17,7 +17,7 @@ apply {
 plugins {
 	application
 	id("org.jetbrains.kotlin.jvm") version "1.1.51"
-	id ("com.github.johnrengelman.plugin-shadow") version "2.0.0"
+	id ("com.github.johnrengelman.shadow") version "2.0.1"
 	id("io.spring.dependency-management") version "1.0.3.RELEASE"
 }
 
