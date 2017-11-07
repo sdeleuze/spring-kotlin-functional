@@ -5,18 +5,18 @@ import functional.web.UserHandler
 import org.springframework.context.ApplicationContextInitializer
 import org.springframework.context.support.GenericApplicationContext
 import org.springframework.context.support.beans
+import org.springframework.web.cors.CorsConfiguration
+import org.springframework.web.cors.reactive.CorsWebFilter
 
 fun beans() = beans {
 	bean<UserHandler>()
 	bean {
 		Routes(ref(), ref()).router()
 	}
-	profile("foo") {
-		bean<Foo>()
+	profile("cors") {
+		bean { CorsWebFilter { CorsConfiguration().applyPermitDefaultValues() } }
 	}
 }
-
-class Foo
 
 // See application.properties context.initializer.classes entry
 class BeansInitializer : ApplicationContextInitializer<GenericApplicationContext> {
