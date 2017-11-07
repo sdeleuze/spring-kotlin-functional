@@ -7,6 +7,8 @@ import functional.web.view.MustacheResourceTemplateLoader
 import functional.web.view.MustacheViewResolver
 import org.springframework.context.support.ReloadableResourceBundleMessageSource
 import org.springframework.context.support.beans
+import org.springframework.web.cors.CorsConfiguration
+import org.springframework.web.cors.reactive.CorsWebFilter
 import org.springframework.web.reactive.function.server.HandlerStrategies
 import org.springframework.web.reactive.function.server.RouterFunctions
 
@@ -31,9 +33,9 @@ fun beans() = beans {
 			setSuffix(suffix)
 		}
 	}
-	profile("foo") {
-		bean<Foo>()
+	profile("cors") {
+		bean("corsFilter") {
+			CorsWebFilter { CorsConfiguration().applyPermitDefaultValues() }
+		}
 	}
 }
-
-class Foo
