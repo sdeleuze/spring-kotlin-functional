@@ -1,6 +1,5 @@
 package functional
 
-import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import org.springframework.boot.test.context.SpringBootTest
@@ -16,18 +15,9 @@ import java.time.LocalDate
 
 @ExtendWith(SpringExtension::class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
-class IntegrationTests {
+class IntegrationTests(@LocalServerPort port: Int) {
 
-	@LocalServerPort
-	var port: Int? = null
-
-	lateinit var client: WebClient
-
-	@BeforeAll
-	fun setup() {
-		client = WebClient.create("http://localhost:$port")
-	}
-
+	private var client = WebClient.create("http://localhost:$port")
 
 	@Test
 	fun `Find all users on JSON REST endpoint`() {
