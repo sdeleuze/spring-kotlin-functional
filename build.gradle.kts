@@ -5,7 +5,7 @@ plugins {
 	id("org.jetbrains.kotlin.plugin.spring") version "1.1.51"
 	id("io.spring.dependency-management") version "1.0.3.RELEASE"
 	id("org.springframework.boot") version "2.0.0.M6"
-	id("org.junit.platform.gradle.plugin") version "1.0.1"
+	id("org.junit.platform.gradle.plugin") version "1.0.2"
 }
 
 repositories {
