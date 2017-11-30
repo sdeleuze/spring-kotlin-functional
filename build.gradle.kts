@@ -1,10 +1,10 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-	id("org.jetbrains.kotlin.jvm") version "1.1.60"
-	id("org.jetbrains.kotlin.plugin.spring") version "1.1.60"
+	id("org.jetbrains.kotlin.jvm") version "1.1.61"
+	id("org.jetbrains.kotlin.plugin.spring") version "1.1.61"
 	id("io.spring.dependency-management") version "1.0.3.RELEASE"
-	id("org.springframework.boot") version "2.0.0.M6"
+	id("org.springframework.boot") version "2.0.0.M7"
 	id("org.junit.platform.gradle.plugin") version "1.0.2"
 }
 
@@ -25,6 +25,7 @@ tasks {
 dependencies {
 	compile("org.jetbrains.kotlin:kotlin-stdlib-jre8")
 	compile("org.jetbrains.kotlin:kotlin-reflect")
+	compile("com.fasterxml.jackson.module:jackson-module-kotlin")
 	compile("org.springframework.boot:spring-boot-starter-webflux")
 	compile("com.samskivert:jmustache")
 
