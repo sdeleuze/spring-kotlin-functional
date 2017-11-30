@@ -16,12 +16,13 @@ apply {
 
 plugins {
 	application
-	id("org.jetbrains.kotlin.jvm") version "1.1.60"
+	id("org.jetbrains.kotlin.jvm") version "1.1.61"
 	id ("com.github.johnrengelman.shadow") version "2.0.1"
 	id("io.spring.dependency-management") version "1.0.3.RELEASE"
 }
 
 repositories {
+	mavenLocal()
 	mavenCentral()
 	maven("https://repo.spring.io/milestone")
 }
@@ -42,7 +43,7 @@ tasks {
 dependencyManagement {
 	imports {
 		// Should use Spring IO platform milestone or release when available
-		mavenBom("org.springframework.boot:spring-boot-dependencies:2.0.0.M6")
+		mavenBom("org.springframework.boot:spring-boot-dependencies:2.0.0.M7")
 	}
 }
 
