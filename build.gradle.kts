@@ -1,28 +1,14 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-buildscript {
-	repositories {
-		mavenCentral()
-	}
-
-	dependencies {
-		classpath("org.junit.platform:junit-platform-gradle-plugin:1.0.2")
-	}
-}
-
-apply {
-	plugin("org.junit.platform.gradle.plugin")
-}
-
 plugins {
 	application
 	id("org.jetbrains.kotlin.jvm") version "1.1.61"
 	id ("com.github.johnrengelman.shadow") version "2.0.1"
 	id("io.spring.dependency-management") version "1.0.3.RELEASE"
+	id("org.junit.platform.gradle.plugin") version "1.0.2"
 }
 
 repositories {
-	mavenLocal()
 	mavenCentral()
 	maven("https://repo.spring.io/milestone")
 }
