@@ -1,9 +1,9 @@
-// Workaround from https://github.com/junit-team/junit5/issues/768 and for Boot plugin still in milestone phase
+// // Required since Boot 2 and JUnit 5 Gradle plugin are not available from Gradle portal
 pluginManagement {
 	repositories {
 		gradlePluginPortal()
-		maven { url "https://jcenter.bintray.com/" }
-		maven { url "https://repo.spring.io/milestone" }
+		maven("https://jcenter.bintray.com/")
+		maven("https://repo.spring.io/milestone")
 	}
 	resolutionStrategy {
 		eachPlugin {
