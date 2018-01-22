@@ -1,12 +1,16 @@
+import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-	id("org.jetbrains.kotlin.jvm") version "1.1.61"
-	id("org.jetbrains.kotlin.plugin.spring") version "1.1.61"
-	id("io.spring.dependency-management") version "1.0.3.RELEASE"
+	val kotlinVersion = "1.2.20"
+	id("org.jetbrains.kotlin.jvm") version kotlinVersion
+	id("org.jetbrains.kotlin.plugin.spring") version kotlinVersion
+	id("io.spring.dependency-management") version "1.0.4.RELEASE"
 	id("org.springframework.boot") version "2.0.0.M7"
 	id("org.junit.platform.gradle.plugin") version "1.0.2"
 }
+
+extra["kotlin.version"] = plugins.getPlugin(KotlinPluginWrapper::class.java).kotlinPluginVersion
 
 repositories {
 	mavenCentral()
@@ -23,7 +27,7 @@ tasks {
 }
 
 dependencies {
-	compile("org.jetbrains.kotlin:kotlin-stdlib-jre8")
+	compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	compile("org.jetbrains.kotlin:kotlin-reflect")
 	compile("com.fasterxml.jackson.module:jackson-module-kotlin")
 	compile("org.springframework.boot:spring-boot-starter-webflux")
