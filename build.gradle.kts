@@ -1,12 +1,15 @@
+import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
 	application
-	id("org.jetbrains.kotlin.jvm") version "1.1.61"
+	id("org.jetbrains.kotlin.jvm") version "1.2.20"
 	id ("com.github.johnrengelman.shadow") version "2.0.1"
-	id("io.spring.dependency-management") version "1.0.3.RELEASE"
+	id("io.spring.dependency-management") version "1.0.4.RELEASE"
 	id("org.junit.platform.gradle.plugin") version "1.0.2"
 }
+
+extra["kotlin.version"] = plugins.getPlugin(KotlinPluginWrapper::class.java).kotlinPluginVersion
 
 repositories {
 	mavenCentral()
@@ -34,7 +37,7 @@ dependencyManagement {
 }
 
 dependencies {
-	compile("org.jetbrains.kotlin:kotlin-stdlib-jre8")
+	compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	compile("org.jetbrains.kotlin:kotlin-reflect")
 
 	compile("org.springframework:spring-webflux")
