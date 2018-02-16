@@ -2,15 +2,13 @@ import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-	val kotlinVersion = "1.2.20"
+	val kotlinVersion = "1.2.21"
 	id("org.jetbrains.kotlin.jvm") version kotlinVersion
 	id("org.jetbrains.kotlin.plugin.spring") version kotlinVersion
 	id("io.spring.dependency-management") version "1.0.4.RELEASE"
-	id("org.springframework.boot") version "2.0.0.M7"
-	id("org.junit.platform.gradle.plugin") version "1.0.2"
+	id("org.springframework.boot") version "2.0.0.RC1"
+	id("org.junit.platform.gradle.plugin") version "1.0.3"
 }
-
-extra["kotlin.version"] = plugins.getPlugin(KotlinPluginWrapper::class.java).kotlinPluginVersion
 
 repositories {
 	mavenCentral()
