@@ -32,7 +32,7 @@ tasks {
 dependencyManagement {
 	imports {
 		// Should use Spring IO platform milestone or release when available
-		mavenBom("org.springframework.boot:spring-boot-dependencies:2.0.0.M7")
+		mavenBom("org.springframework.boot:spring-boot-dependencies:2.0.0.RC2")
 	}
 }
 
