@@ -2,7 +2,7 @@ import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-	val kotlinVersion = "1.2.21"
+	val kotlinVersion = "1.2.31"
 	id("org.jetbrains.kotlin.jvm") version kotlinVersion
 	id("org.jetbrains.kotlin.plugin.spring") version kotlinVersion
 	id("io.spring.dependency-management") version "1.0.4.RELEASE"
@@ -12,7 +12,6 @@ plugins {
 
 repositories {
 	mavenCentral()
-	maven("https://repo.spring.io/milestone")
 }
 
 tasks {
