@@ -3,17 +3,17 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
 	application
-	id("org.jetbrains.kotlin.jvm") version "1.2.20"
+	id("org.jetbrains.kotlin.jvm") version "1.2.31"
 	id ("com.github.johnrengelman.shadow") version "2.0.1"
 	id("io.spring.dependency-management") version "1.0.4.RELEASE"
 	id("org.junit.platform.gradle.plugin") version "1.0.2"
 }
 
+// Tweak to be sure to have compiler and dependency versions the same
 extra["kotlin.version"] = plugins.getPlugin(KotlinPluginWrapper::class.java).kotlinPluginVersion
 
 repositories {
 	mavenCentral()
-	maven("https://repo.spring.io/milestone")
 }
 
 application {
