@@ -6,7 +6,7 @@ plugins {
 	id("org.jetbrains.kotlin.jvm") version kotlinVersion
 	id("org.jetbrains.kotlin.plugin.spring") version kotlinVersion
 	id("io.spring.dependency-management") version "1.0.4.RELEASE"
-	id("org.springframework.boot") version "2.0.0.RC2"
+	id("org.springframework.boot") version "2.0.0.RELEASE"
 	id("org.junit.platform.gradle.plugin") version "1.0.3"
 }
 
