@@ -34,7 +34,7 @@ val test by tasks.getting(Test::class) {
 
 dependencyManagement {
 	imports {
-		mavenBom("org.springframework.boot:spring-boot-dependencies:2.0.0.RELEASE")
+		mavenBom("org.springframework.boot:spring-boot-dependencies:2.0.1.RELEASE")
 	}
 }
 
