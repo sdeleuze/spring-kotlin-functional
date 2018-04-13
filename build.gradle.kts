@@ -6,7 +6,6 @@ plugins {
 	id("org.jetbrains.kotlin.jvm") version "1.2.31"
 	id ("com.github.johnrengelman.shadow") version "2.0.1"
 	id("io.spring.dependency-management") version "1.0.4.RELEASE"
-	id("org.junit.platform.gradle.plugin") version "1.0.2"
 }
 
 // Tweak to be sure to have compiler and dependency versions the same
@@ -27,6 +26,10 @@ tasks {
 			freeCompilerArgs = listOf("-Xjsr305=strict")
 		}
 	}
+}
+
+val test by tasks.getting(Test::class) {
+	useJUnitPlatform()
 }
 
 dependencyManagement {
@@ -54,6 +57,6 @@ dependencies {
 
 	testCompile("io.projectreactor:reactor-test")
 
-	testCompile("org.junit.jupiter:junit-jupiter-api")
-	testRuntime("org.junit.jupiter:junit-jupiter-engine")
+	testImplementation("org.junit.jupiter:junit-jupiter-api")
+	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
 }
