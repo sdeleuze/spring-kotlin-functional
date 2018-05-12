@@ -43,6 +43,7 @@ dependencies {
 	compile("org.jetbrains.kotlin:kotlin-reflect")
 
 	compile("org.springframework:spring-webflux")
+	compile("org.springframework:spring-test")
 	compile("org.springframework:spring-context") {
 		exclude(module = "spring-aop")
 	}
@@ -56,6 +57,7 @@ dependencies {
 	compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
 
 	testCompile("io.projectreactor:reactor-test")
+	testCompile("org.assertj:assertj-core")
 
 	testImplementation("org.junit.jupiter:junit-jupiter-api")
 	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
