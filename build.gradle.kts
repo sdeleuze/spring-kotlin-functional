@@ -3,9 +3,9 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
 	application
-	id("org.jetbrains.kotlin.jvm") version "1.2.31"
-	id ("com.github.johnrengelman.shadow") version "2.0.1"
-	id("io.spring.dependency-management") version "1.0.4.RELEASE"
+	id("org.jetbrains.kotlin.jvm") version "1.2.41"
+	id ("com.github.johnrengelman.shadow") version "2.0.4"
+	id("io.spring.dependency-management") version "1.0.5.RELEASE"
 }
 
 // Tweak to be sure to have compiler and dependency versions the same
@@ -34,7 +34,7 @@ val test by tasks.getting(Test::class) {
 
 dependencyManagement {
 	imports {
-		mavenBom("org.springframework.boot:spring-boot-dependencies:2.0.1.RELEASE")
+		mavenBom("org.springframework.boot:spring-boot-dependencies:2.0.2.RELEASE")
 	}
 }
 
