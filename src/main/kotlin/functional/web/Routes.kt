@@ -7,11 +7,10 @@ import org.springframework.core.io.ClassPathResource
 import org.springframework.http.MediaType.*
 import org.springframework.web.reactive.function.server.RenderingResponse
 import org.springframework.web.reactive.function.server.router
-import org.springframework.web.reactive.function.server.ServerResponse.*
 import reactor.core.publisher.toMono
 import java.util.*
 
-class Routes(val userHandler: UserHandler, val messageSource: MessageSource) {
+class Routes(private val userHandler: UserHandler, private val messageSource: MessageSource) {
 	
 	fun router() = router {
 		accept(TEXT_HTML).nest {

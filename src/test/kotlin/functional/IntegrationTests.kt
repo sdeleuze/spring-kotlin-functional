@@ -11,7 +11,7 @@ import org.springframework.http.MediaType.*
 import org.springframework.test.context.junit.jupiter.SpringExtension
 import org.springframework.test.web.reactive.server.WebTestClient
 import org.springframework.test.web.reactive.server.expectBodyList
-import org.springframework.test.web.reactive.server.expectBody // No auto-suggest yet see KT-23834
+import org.springframework.test.web.reactive.server.expectBody
 import org.springframework.test.web.reactive.server.returnResult
 import reactor.test.test
 import java.time.LocalDate
