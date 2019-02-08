@@ -10,7 +10,7 @@ This project is designed to demonstrate Spring Framework 5 Kotlin support and Fu
  - [Gradle Kotlin DSL](https://github.com/gradle/kotlin-dsl)
  - [Junit 5 `@BeforeAll` and `@AfterAll` on non-static methods in Kotlin](https://github.com/sdeleuze/spring-kotlin-functional/blob/master/src/test/kotlin/functional/IntegrationTests.kt)
 
-All the work in that domain now happen in [Spring Fu](https://github.com/spring-projects/spring-fu).
+All the work in that domain now happens in [Spring Fu](https://github.com/spring-projects/spring-fu).
 
 Current `master` branch is based on standalone WebFlux runtime. Spring Boot is based
 on JavaConfig and does not provide specific support functional bean definition yet (see

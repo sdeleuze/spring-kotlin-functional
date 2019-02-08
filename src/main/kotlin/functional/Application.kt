@@ -6,8 +6,10 @@ import org.springframework.http.server.reactive.HttpHandler
 import org.springframework.http.server.reactive.ReactorHttpHandlerAdapter
 import org.springframework.web.cors.reactive.CorsWebFilter
 import org.springframework.web.server.adapter.WebHttpHandlerBuilder
-import reactor.ipc.netty.http.server.HttpServer
-import reactor.ipc.netty.tcp.BlockingNettyContext
+import reactor.netty.DisposableServer
+import reactor.netty.http.server.HttpServer
+import java.time.Duration
+import java.util.concurrent.atomic.AtomicReference
 
 class Application {
 	
@@ -15,7 +17,8 @@ class Application {
 	
 	private val server: HttpServer
 
-	private var nettyContext: BlockingNettyContext? = null
+	private val disposableRef = AtomicReference<DisposableServer>()
+
 	
 	constructor(port: Int = 8080) {
 		val context = GenericApplicationContext().apply {
@@ -23,7 +26,7 @@ class Application {
 			refresh()
 		}
 
-		server = HttpServer.create(port)
+		server = HttpServer.create().host("127.0.0.1").port(port)
 		httpHandler = WebHttpHandlerBuilder
 				.applicationContext(context)
 				.apply { if (context.containsBean("corsFilter")) filter(context.getBean<CorsWebFilter>()) }
@@ -31,18 +34,18 @@ class Application {
 	}
 
 	fun start() {
-		nettyContext = server.start(ReactorHttpHandlerAdapter(httpHandler))
+		this.disposableRef.set(server.handle(ReactorHttpHandlerAdapter(httpHandler)).bindNow())
 	}
 	
 	fun startAndAwait() {
-		server.startAndAwait(ReactorHttpHandlerAdapter(httpHandler), { nettyContext = it })
+		server.handle(ReactorHttpHandlerAdapter(httpHandler)).bindUntilJavaShutdown(Duration.ofSeconds(45), null)
 	}
 	
 	fun stop() {
-		nettyContext?.shutdown()
+		disposableRef.get().dispose()
 	}
 }
 
-fun main(args: Array<String>) {
+fun main() {
 	Application().startAndAwait()
 }

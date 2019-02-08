@@ -3,9 +3,9 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
 	application
-	id("org.jetbrains.kotlin.jvm") version "1.2.41"
+	id("org.jetbrains.kotlin.jvm") version "1.3.21"
 	id ("com.github.johnrengelman.shadow") version "2.0.4"
-	id("io.spring.dependency-management") version "1.0.5.RELEASE"
+	id("io.spring.dependency-management") version "1.0.6.RELEASE"
 }
 
 // Tweak to be sure to have compiler and dependency versions the same
@@ -34,7 +34,7 @@ val test by tasks.getting(Test::class) {
 
 dependencyManagement {
 	imports {
-		mavenBom("org.springframework.boot:spring-boot-dependencies:2.0.2.RELEASE")
+		mavenBom("org.springframework.boot:spring-boot-dependencies:2.1.2.RELEASE")
 	}
 }
 
@@ -47,7 +47,7 @@ dependencies {
 	compile("org.springframework:spring-context") {
 		exclude(module = "spring-aop")
 	}
-	compile("io.projectreactor.ipc:reactor-netty")
+	compile("io.projectreactor.netty:reactor-netty")
 	compile("com.samskivert:jmustache")
 
 	compile("org.slf4j:slf4j-api")
