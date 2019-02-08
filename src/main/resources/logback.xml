@@ -9,7 +9,7 @@
 	</appender>
 
 	<logger name="reactor" level="info"/>
-	<logger name="reactor.ipc.netty" level="info"/>
+	<logger name="reactor.netty.tcp.TcpServer" level="debug"/>
 
 	<root level="info">
 		<appender-ref ref="stdout"/>
