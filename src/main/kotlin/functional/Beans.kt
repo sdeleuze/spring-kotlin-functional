@@ -12,7 +12,7 @@ import org.springframework.web.cors.reactive.CorsWebFilter
 import org.springframework.web.reactive.function.server.HandlerStrategies
 import org.springframework.web.reactive.function.server.RouterFunctions
 
-fun beans() = beans {
+val beans = beans {
 	bean<UserHandler>()
 	bean<Routes>()
 	bean("webHandler") {

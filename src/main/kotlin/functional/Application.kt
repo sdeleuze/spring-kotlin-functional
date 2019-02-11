@@ -22,7 +22,7 @@ class Application {
 	
 	constructor(port: Int = 8080) {
 		val context = GenericApplicationContext().apply {
-			beans().initialize(this)
+			beans.initialize(this)
 			refresh()
 		}
 
