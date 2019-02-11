@@ -8,7 +8,7 @@ import org.springframework.context.support.beans
 import org.springframework.web.cors.CorsConfiguration
 import org.springframework.web.cors.reactive.CorsWebFilter
 
-fun beans() = beans {
+val beans = beans {
 	bean<UserHandler>()
 	bean {
 		Routes(ref(), ref()).router()
@@ -21,6 +21,6 @@ fun beans() = beans {
 // See application.properties context.initializer.classes entry
 class BeansInitializer : ApplicationContextInitializer<GenericApplicationContext> {
 	override fun initialize(context: GenericApplicationContext) =
-			beans().initialize(context)
+			beans.initialize(context)
 
 }
