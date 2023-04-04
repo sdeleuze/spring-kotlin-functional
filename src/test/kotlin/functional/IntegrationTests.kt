@@ -1,26 +1,20 @@
 package functional
 
 import org.assertj.core.api.Assertions
-import org.junit.jupiter.api.AfterAll
-import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.http.MediaType.*
+import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.web.reactive.server.WebTestClient
-import org.springframework.test.web.reactive.server.expectBody // No auto-suggest yet see KT-23834
+import org.springframework.test.web.reactive.server.expectBody
 import org.springframework.test.web.reactive.server.expectBodyList
 import org.springframework.test.web.reactive.server.returnResult
-import reactor.test.test
+import reactor.kotlin.test.test
 import java.time.LocalDate
 
-class IntegrationTests {
-	
-	private val application = Application(8181)
-	private val client = WebTestClient.bindToServer().baseUrl("http://localhost:8181").build()
-	
-	@BeforeAll
-	fun beforeAll() {
-		application.start()
-	}
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+class IntegrationTests(@Autowired val client: WebTestClient) {
 
 	@Test
 	fun `Find all users on JSON REST endpoint`() {
@@ -64,10 +58,4 @@ class IntegrationTests {
 				.verify()
 	}
 
-
-
-	@AfterAll
-	fun afterAll() {
-		application.stop()
-	}
 }

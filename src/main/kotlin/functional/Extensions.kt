@@ -1,6 +1,6 @@
 package functional
 
-import org.springframework.web.reactive.function.server.ServerRequest
+import org.springframework.web.servlet.function.ServerRequest
 import java.time.LocalDate
 import java.time.format.DateTimeFormatterBuilder
 import java.time.temporal.ChronoField
@@ -24,11 +24,10 @@ private val englishDateFormatter = DateTimeFormatterBuilder()
 		.appendPattern("yyyy")
 		.toFormatter(Locale.ENGLISH)
 
-private fun getOrdinal(n: Int) =
-		when {
-			n in 11..13 -> "${n}th"
-			n % 10 == 1 -> "${n}st"
-			n % 10 == 2 -> "${n}nd"
-			n % 10 == 3 -> "${n}rd"
-			else -> "${n}th"
-		}
+private fun getOrdinal(n: Int) = when {
+	n in 11..13 -> "${n}th"
+	n % 10 == 1 -> "${n}st"
+	n % 10 == 2 -> "${n}nd"
+	n % 10 == 3 -> "${n}rd"
+	else -> "${n}th"
+}

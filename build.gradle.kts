@@ -1,64 +1,47 @@
-import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-	application
-	id("org.jetbrains.kotlin.jvm") version "1.3.21"
-	id ("com.github.johnrengelman.shadow") version "2.0.4"
-	id("io.spring.dependency-management") version "1.0.6.RELEASE"
+	id("org.springframework.boot") version "3.0.5"
+	id("io.spring.dependency-management") version "1.1.0"
+	kotlin("jvm") version "1.8.20"
+	kotlin("plugin.spring") version "1.8.20"
+	kotlin("plugin.serialization") version "1.8.20"
+	id("org.graalvm.buildtools.native") version "0.9.20"
 }
 
-// Tweak to be sure to have compiler and dependency versions the same
-extra["kotlin.version"] = plugins.getPlugin(KotlinPluginWrapper::class.java).kotlinPluginVersion
+group = "com.example"
+version = "0.0.1-SNAPSHOT"
+java.sourceCompatibility = JavaVersion.VERSION_17
 
 repositories {
 	mavenCentral()
 }
 
-application {
-	mainClassName = "functional.ApplicationKt"
-}
-
-tasks {
-	withType<KotlinCompile> {
-		kotlinOptions {
-			jvmTarget = "1.8"
-			freeCompilerArgs = listOf("-Xjsr305=strict")
-		}
-	}
-}
-
-val test by tasks.getting(Test::class) {
-	useJUnitPlatform()
-}
-
-dependencyManagement {
-	imports {
-		mavenBom("org.springframework.boot:spring-boot-dependencies:2.1.2.RELEASE")
-	}
+configurations.all {
+	// Logback + the XML infrastructure that it makes reachable are worth to exclude to get a smaller native footprint
+	exclude(module = "spring-boot-starter-logging")
+	// We use Kotlin Serialization so no need for Jackson and kotlin-reflect
+	exclude(module = "spring-boot-starter-json")
 }
 
 dependencies {
-	compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-	compile("org.jetbrains.kotlin:kotlin-reflect")
+	implementation("org.springframework.boot:spring-boot-starter-mustache")
+	implementation("org.springframework.boot:spring-boot-starter-web")
+	implementation("org.springframework.boot:spring-boot-starter")
+	implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0")
+	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	testImplementation("org.springframework.boot:spring-boot-starter-webflux")
+	testImplementation("io.projectreactor:reactor-test")
+}
 
-	compile("org.springframework:spring-webflux")
-	compile("org.springframework:spring-test")
-	compile("org.springframework:spring-context") {
-		exclude(module = "spring-aop")
+tasks.withType<KotlinCompile> {
+	compilerOptions {
+		freeCompilerArgs = listOf("-Xjsr305=strict")
+		jvmTarget = JvmTarget.JVM_17
 	}
-	compile("io.projectreactor.netty:reactor-netty")
-	compile("com.samskivert:jmustache")
+}
 
-	compile("org.slf4j:slf4j-api")
-	compile("ch.qos.logback:logback-classic")
-
-	compile("com.fasterxml.jackson.module:jackson-module-kotlin")
-	compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
-
-	testCompile("io.projectreactor:reactor-test")
-	testCompile("org.assertj:assertj-core")
-
-	testImplementation("org.junit.jupiter:junit-jupiter-api")
-	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
+tasks.withType<Test> {
+	useJUnitPlatform()
 }
