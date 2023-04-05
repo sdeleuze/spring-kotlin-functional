@@ -27,7 +27,6 @@ class Routes {
 			accept(TEXT_EVENT_STREAM).nest {
 				GET("/users", userHandler::stream)
 			}
-
 		}
 	}.filter { request, next ->
 		next.handle(request).let {

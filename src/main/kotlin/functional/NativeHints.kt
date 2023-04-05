@@ -12,7 +12,7 @@ class NativeHints : RuntimeHintsRegistrar {
 		hints.reflection().registerType<User>(MemberCategory.INVOKE_DECLARED_METHODS, MemberCategory.DECLARED_FIELDS)
 		hints.reflection().registerType<User.Companion>(MemberCategory.INVOKE_DECLARED_METHODS)
 
-		// TODO Remove when Native Build Tools 0.9.21 is released
+		// TODO Remove when GraalVM reachability 0.2.8 is released
 		hints.reflection().registerType(TypeReference.of("kotlin.internal.jdk8.JDK8PlatformImplementations"), MemberCategory.INVOKE_PUBLIC_CONSTRUCTORS)
 	}
 }
