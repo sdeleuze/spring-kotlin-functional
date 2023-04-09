@@ -23,11 +23,15 @@ configurations.all {
 	exclude(module = "spring-boot-starter-logging")
 	// We use Kotlin Serialization so no need for Jackson and kotlin-reflect
 	exclude(module = "spring-boot-starter-json")
+	// We use tomcat-embed-programmatic instead
+	exclude(module = "tomcat-embed-core")
+	exclude(module = "tomcat-embed-websocket")
 }
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-mustache")
 	implementation("org.springframework.boot:spring-boot-starter-web")
+	implementation("org.apache.tomcat.experimental:tomcat-embed-programmatic:${dependencyManagement.importedProperties["tomcat.version"]}")
 	implementation("org.springframework.boot:spring-boot-starter")
 	implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
