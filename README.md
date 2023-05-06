@@ -5,7 +5,7 @@ This project is designed to demonstrate:
  - [Gradle Kotlin DSL configuration](https://docs.gradle.org/current/userguide/kotlin_dsl.html)
  - [Spring Boot GraalVM native images support](https://docs.spring.io/spring-boot/docs/current/reference/html/native-image.html) 
 
-This sample does not use functional bean registration for 2 main reasons:
+This sample does not use functional bean registration for 3 main reasons:
  - This is not yet well supporting with native/AOT, see [spring-framework#29555](https://github.com/spring-projects/spring-framework/issues/29555) related issue.
  - [Spring Fu](https://github.com/spring-projects-experimental/spring-fu) development is frozen while the Spring team figures out a better option to provide first class support for functional configuration well integrated in Spring Boot, see [spring-boot#8115](https://github.com/spring-projects/spring-boot/issues/8115) related issue.
  - Spring AOT transforms automatically annotation-based JavaConfig configuration model to functional bean registration executed at runtime.
